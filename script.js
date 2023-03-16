@@ -21,8 +21,8 @@ const passengerMap = [
 
 
 function findNewRide(driverPositionX, driverPositionY) {
-    let ditanciaminima = 256;
-    let passageiro = null;
+    let minimunDistance = 256;
+    let Passager1 = null;
 
     for (let i = 0; i < passengerMap.length; i++) {
         for (let j = 0; j < passengerMap[i].length; j++) {
@@ -30,17 +30,17 @@ function findNewRide(driverPositionX, driverPositionY) {
                 let v1 = Math.pow(i - driverPositionX, 2);
                 let v2 = Math.pow(j - driverPositionY, 2);
                 let distance = Math.sqrt(v1 + v2);
-                if (distance < ditanciaminima) {
-                    ditanciaminima = distance;
-                    passageiro = [i, j];
+                if (distance < minimunDistance) {
+                    minimunDistance = distance;
+                    Passager1 = [i, j];
 
                 }
             }
         }
     } 
     
-    let novaride = ditanciaminima.toFixed(2);
-    let newdistance = [passageiro , `${novaride} km`];
+    let findNewRide = minimunDistance.toFixed(2);
+    let newdistance = [Passager1 , `${findNewRide} km`];
     return newdistance;
 }
 findNewRide(0, 0);
